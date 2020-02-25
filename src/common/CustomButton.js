@@ -6,7 +6,7 @@ import styles from './styles';
 
 function CustomButton({title, onPress}) {
   return (
-    <RectButton style={styles.button} {...{onPress}}>
+    <RectButton disabled style={styles.button} {...{onPress}}>
       <View accessible>
         <Text style={styles.buttonText}>{title}</Text>
       </View>

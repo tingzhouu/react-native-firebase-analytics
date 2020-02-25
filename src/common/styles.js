@@ -19,4 +19,10 @@ export default StyleSheet.create({
     color: 'white',
     fontSize: 16,
   },
+  form: {
+    marginVertical: 10,
+    padding: 20,
+    borderBottomColor: '#EAA653',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
 });

@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import * as Screens from './src/Screens';
 import * as auth from './src/authReducer';
 
-const AuthContext = React.createContext();
+export const AuthContext = React.createContext();
 
 const Stack = createStackNavigator();
 
@@ -64,7 +64,8 @@ export default function App() {
   const authContext = React.useMemo(
     () => ({
       signIn: async data => {
-        dispatch({type: 'SIGN_IN', token: 'dummy-auth-token'});
+        dispatch({type: 'SIGN_IN', token: data.username});
+        AsyncStorage.setItem('userToken', data.username);
       },
       signOut: () => dispatch({type: 'SIGN_OUT'}),
     }),

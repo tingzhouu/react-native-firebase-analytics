@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {Text, View, TextInput} from 'react-native';
 import CustomButton from './common/CustomButton';
 import styles from './common/styles';
+import {AuthContext} from '../App';
 
 export function DetailsScreen() {
   return (
@@ -26,6 +25,7 @@ export function HomeScreen({navigation}) {
 }
 
 export function SettingsScreen({navigation}) {
+  const {signOut} = React.useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Text>Settings screen</Text>
@@ -33,18 +33,27 @@ export function SettingsScreen({navigation}) {
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
       />
+      <CustomButton title="Logout" onPress={signOut} />
     </View>
   );
 }
 
 export function LoginScreen({navigation}) {
+  const [username, setUsername] = React.useState('');
+
+  const {signIn} = React.useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Text>Login screen</Text>
-      <CustomButton
-        title="Login"
-        onPress={() => navigation.navigate('Details')}
+      <TextInput
+        placeholder="Username"
+        value={username}
+        onChangeText={setUsername}
+        style={styles.form}
       />
+      {username.length > 0 && (
+        <CustomButton title="Login" onPress={() => signIn({username})} />
+      )}
     </View>
   );
 }
