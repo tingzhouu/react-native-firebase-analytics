@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* tingzhouAnalyticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* tingzhouAnalyticsTests.m */; };
 		05872160F0C93D9E1397F8DB /* libPods-tingzhouAnalytics-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7A6C6DBD5CB66E1182FE42 /* libPods-tingzhouAnalytics-tvOS.a */; };
@@ -20,6 +19,7 @@
 		3B289B6A4A5058204EEFD07C /* libPods-tingzhouAnalytics-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4AB63D9750C96D131A9A71 /* libPods-tingzhouAnalytics-tvOSTests.a */; };
 		69B449860123677527AAE013 /* libPods-tingzhouAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8961CD1D2C71F88E119D5A /* libPods-tingzhouAnalytics.a */; };
 		721ADEB00207F495C8CFF074 /* libPods-tingzhouAnalyticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1D3767AE3E277FB1317762 /* libPods-tingzhouAnalyticsTests.a */; };
+		628AE9887F554699802759D0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBAA1DC010C409F889C24A1 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +67,7 @@
 		EF1D3767AE3E277FB1317762 /* libPods-tingzhouAnalyticsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tingzhouAnalyticsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DEF4226380DFFDBB837335 /* Pods-tingzhouAnalytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tingzhouAnalytics.release.xcconfig"; path = "Target Support Files/Pods-tingzhouAnalytics/Pods-tingzhouAnalytics.release.xcconfig"; sourceTree = "<group>"; };
 		FE38D22849968E9B8B8C5E52 /* Pods-tingzhouAnalyticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tingzhouAnalyticsTests.debug.xcconfig"; path = "Target Support Files/Pods-tingzhouAnalyticsTests/Pods-tingzhouAnalyticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7DBAA1DC010C409F889C24A1 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69B449860123677527AAE013 /* libPods-tingzhouAnalytics.a in Frameworks */,
+				628AE9887F554699802759D0 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +147,7 @@
 				BB7A6C6DBD5CB66E1182FE42 /* libPods-tingzhouAnalytics-tvOS.a */,
 				AA4AB63D9750C96D131A9A71 /* libPods-tingzhouAnalytics-tvOSTests.a */,
 				EF1D3767AE3E277FB1317762 /* libPods-tingzhouAnalyticsTests.a */,
+				7DBAA1DC010C409F889C24A1 /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,6 +201,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E2D21491DEBA47DD990973C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			path = Application;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,6 +241,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				2B61F30C100F4004AD472675 /* Upload Debug Symbols to Sentry */,
 			);
 			buildRules = (
 			);
@@ -285,7 +297,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -371,7 +383,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport NODE_BINARY=node\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -385,7 +397,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport NODE_BINARY=node\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
 		88D1CF6E681FF0F98AF80D82 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -512,6 +524,20 @@
 			shellPath = /bin/sh;
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		2B61F30C100F4004AD472675 /* Upload Debug Symbols to Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Upload Debug Symbols to Sentry";
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			shellPath = /bin/sh;
+			shellScript = "export SENTRY_PROPERTIES=sentry.properties\n../node_modules/@sentry/cli/bin/sentry-cli upload-dsym";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -38,6 +38,39 @@ export function SettingsScreen({navigation}) {
   );
 }
 
+export function CrashScreen({navigation}) {
+  const {signOut} = React.useContext(AuthContext);
+  return (
+    <View style={styles.container}>
+      <Text>Crash screen</Text>
+      <CustomButton title="ReferenceError" onPress={() => asd} />
+      <CustomButton title="TypeError" onPress={() => null.asd} />
+      <CustomButton
+        title="Forever Loop"
+        onPress={() => {
+          let a = 999;
+          let arr = [];
+          while (true) {
+            console.log('WOOHOOO');
+            a = a * a * a;
+            arr.push(a);
+            console.log('arr', arr);
+          }
+        }}
+      />
+      <CustomButton
+        title="Stack Overflow"
+        onPress={() => {
+          function callMe() {
+            callMe();
+          }
+          callMe();
+        }}
+      />
+    </View>
+  );
+}
+
 export function LoginScreen({navigation}) {
   const [username, setUsername] = React.useState('');
 
