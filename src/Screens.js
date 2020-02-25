@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {Text, View, TextInput} from 'react-native';
+import * as Sentry from '@sentry/react-native';
+
 import CustomButton from './common/CustomButton';
 import styles from './common/styles';
 import {AuthContext} from '../App';
@@ -65,6 +67,16 @@ export function CrashScreen({navigation}) {
             callMe();
           }
           callMe();
+        }}
+      />
+      <CustomButton
+        title="Catch Exception"
+        onPress={() => {
+          try {
+            new Error("Something broke")
+          } catch (error) {
+            Sentry.captureException(error);
+          }
         }}
       />
     </View>

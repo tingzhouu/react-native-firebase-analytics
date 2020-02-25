@@ -3,11 +3,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AsyncStorage from '@react-native-community/async-storage';
+import * as Sentry from '@sentry/react-native';
 
 import * as Screens from './src/Screens';
 import * as auth from './src/authReducer';
-
-import * as Sentry from '@sentry/react-native';
 
 Sentry.init({
   dsn: 'https://be7ae5d35f854e06bfe6a67dca3b6236@sentry.io/2596649',
@@ -73,7 +72,7 @@ export default function App() {
       } catch (e) {
         // Restoring token failed
       }
-      console.log('userToken', userToken);
+      Sentry.setUser({username: userToken});
       dispatch({type: 'RESTORE_TOKEN', token: userToken});
     };
 

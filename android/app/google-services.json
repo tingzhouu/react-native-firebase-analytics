@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "79621675058",
+    "firebase_url": "https://tingzhouanalytics.firebaseio.com",
+    "project_id": "tingzhouanalytics",
+    "storage_bucket": "tingzhouanalytics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79621675058:android:22caef0ea8970493d3442b",
+        "android_client_info": {
+          "package_name": "com.tingzhouanalytics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "79621675058-7r1882058kr5coiud7318adloqubmmu9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAABJh9JocxiNqHkY21CqWCwGvJWeNrjSg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "79621675058-7r1882058kr5coiud7318adloqubmmu9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "79621675058-roq7021bb5pcnh50jv79j9f5k90f0v83.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tingzhou.tingzhouAnalytics"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
