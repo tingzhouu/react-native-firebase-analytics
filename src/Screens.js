@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Text, View, TextInput} from 'react-native';
 import * as Sentry from '@sentry/react-native';
+import analytics from '@react-native-firebase/analytics';
 
 import CustomButton from './common/CustomButton';
 import styles from './common/styles';
@@ -130,6 +131,9 @@ export function LoginScreen({navigation}) {
         value={username}
         onChangeText={setUsername}
         style={styles.form}
+        autoCapitalize="none"
+        autoCompleteType="off"
+        autoCorrect={false}
       />
       {username.length > 0 && (
         <CustomButton title="Login" onPress={() => signIn({username})} />

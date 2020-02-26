@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AsyncStorage from '@react-native-community/async-storage';
 import * as Sentry from '@sentry/react-native';
+import analytics from '@react-native-firebase/analytics';
 
 import * as Screens from './src/Screens';
 import * as auth from './src/authReducer';
@@ -94,8 +95,12 @@ export default function App() {
       signIn: async data => {
         dispatch({type: 'SIGN_IN', token: data.username});
         AsyncStorage.setItem('userToken', data.username);
+        analytics().setUserId(data.username);
       },
-      signOut: () => dispatch({type: 'SIGN_OUT'}),
+      signOut: async () => {
+        dispatch({type: 'SIGN_OUT'});
+        await analytics().resetAnalyticsData();
+      },
       state,
     }),
     [state],
