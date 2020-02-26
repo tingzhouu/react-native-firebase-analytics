@@ -51,11 +51,21 @@ function CrashStackScreen() {
   );
 }
 
+const BuyStack = createStackNavigator();
+function BuyStackScreen() {
+  return (
+    <BuyStack.Navigator>
+      <BuyStack.Screen name="Buy Stuff" component={Screens.BuyScreen} />
+    </BuyStack.Navigator>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 function MainTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeStackScreen} />
+      <Tab.Screen name="Buy" component={BuyStackScreen} />
       <Tab.Screen name="Crash" component={CrashStackScreen} />
       <Tab.Screen name="Settings" component={SettingsStackScreen} />
     </Tab.Navigator>
@@ -86,8 +96,9 @@ export default function App() {
         AsyncStorage.setItem('userToken', data.username);
       },
       signOut: () => dispatch({type: 'SIGN_OUT'}),
+      state,
     }),
-    [],
+    [state],
   );
 
   if (state.isLoading) {

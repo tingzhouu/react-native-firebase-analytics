@@ -15,9 +15,11 @@ export function DetailsScreen() {
 }
 
 export function HomeScreen({navigation}) {
+  const {state} = React.useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Text>Home screen</Text>
+      <Text>Username: {state.userToken}</Text>
       <CustomButton
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
@@ -26,11 +28,43 @@ export function HomeScreen({navigation}) {
   );
 }
 
+export function BuyScreen({navigation}) {
+  const {state} = React.useContext(AuthContext);
+  const [quantityToBuy, setQuantityToBuy] = React.useState(0);
+  const [quantityBought, setQuantityBought] = React.useState(0);
+  return (
+    <View style={styles.container}>
+      <Text>Buy screen</Text>
+      <Text>Username: {state.userToken}</Text>
+      <Text>Quantity Bought: {quantityBought}</Text>
+      <Text>Quantity To Buy: {quantityToBuy}</Text>
+      <CustomButton
+        title="Increase Quantity"
+        onPress={() => setQuantityToBuy(quantityToBuy + 1)}
+      />
+      <CustomButton
+        title="Decrease Quantity"
+        onPress={() =>
+          setQuantityToBuy(quantityToBuy === 0 ? 0 : quantityToBuy - 1)
+        }
+      />
+      <CustomButton
+        title="Buy"
+        onPress={() => {
+          setQuantityBought(quantityBought + quantityToBuy);
+          setQuantityToBuy(0);
+        }}
+      />
+    </View>
+  );
+}
+
 export function SettingsScreen({navigation}) {
-  const {signOut} = React.useContext(AuthContext);
+  const {signOut, state} = React.useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Text>Settings screen</Text>
+      <Text>Username: {state.userToken}</Text>
       <CustomButton
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
@@ -41,10 +75,11 @@ export function SettingsScreen({navigation}) {
 }
 
 export function CrashScreen({navigation}) {
-  const {signOut} = React.useContext(AuthContext);
+  const {state} = React.useContext(AuthContext);
   return (
     <View style={styles.container}>
       <Text>Crash screen</Text>
+      <Text>Username: {state.userToken}</Text>
       <CustomButton title="ReferenceError" onPress={() => asd} />
       <CustomButton title="TypeError" onPress={() => null.asd} />
       <CustomButton
@@ -73,7 +108,7 @@ export function CrashScreen({navigation}) {
         title="Catch Exception"
         onPress={() => {
           try {
-            new Error("Something broke")
+            new Error('Something broke');
           } catch (error) {
             Sentry.captureException(error);
           }
