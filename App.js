@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AsyncStorage from '@react-native-community/async-storage';
 import * as Sentry from '@sentry/react-native';
 import analytics from '@react-native-firebase/analytics';
+import firebase from '@react-native-firebase/app';
 
 import * as Screens from './src/Screens';
 import * as auth from './src/authReducer';
@@ -74,6 +75,9 @@ function MainTabs() {
 }
 
 export default function App() {
+  if (firebase.app().utils().isRunningInTestLab) {
+    firebase.analytics().setAnalyticsCollectionEnabled(false);
+  }
   const [state, dispatch] = React.useReducer(auth.reducer, auth.initialState);
   React.useEffect(() => {
     const bootstrapAsync = async () => {

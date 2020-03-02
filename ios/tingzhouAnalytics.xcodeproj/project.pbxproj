@@ -21,7 +21,7 @@
 		628AE9887F554699802759D0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBAA1DC010C409F889C24A1 /* libz.tbd */; };
 		69B449860123677527AAE013 /* libPods-tingzhouAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F8961CD1D2C71F88E119D5A /* libPods-tingzhouAnalytics.a */; };
 		721ADEB00207F495C8CFF074 /* libPods-tingzhouAnalyticsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1D3767AE3E277FB1317762 /* libPods-tingzhouAnalyticsTests.a */; };
-		999349992405B5DA00625AD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 999349982405B5DA00625AD4 /* GoogleService-Info.plist */; };
+		99757825240D191B005F7FB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99757824240D191B005F7FB6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		2D02E4901E0B4A5D006451C7 /* tingzhouAnalytics-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tingzhouAnalytics-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE0912F1F35428E32E480F9 /* Pods-tingzhouAnalytics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tingzhouAnalytics.debug.xcconfig"; path = "Target Support Files/Pods-tingzhouAnalytics/Pods-tingzhouAnalytics.debug.xcconfig"; sourceTree = "<group>"; };
 		7DBAA1DC010C409F889C24A1 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		999349982405B5DA00625AD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99757824240D191B005F7FB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "tingzhouAnalytics/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D576A0ADFCB1CED1429D098 /* Pods-tingzhouAnalytics-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tingzhouAnalytics-tvOS.release.xcconfig"; path = "Target Support Files/Pods-tingzhouAnalytics-tvOS/Pods-tingzhouAnalytics-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		AA4AB63D9750C96D131A9A71 /* libPods-tingzhouAnalytics-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tingzhouAnalytics-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B130D75F08B72714B440B90E /* Pods-tingzhouAnalytics-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tingzhouAnalytics-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-tingzhouAnalytics-tvOSTests/Pods-tingzhouAnalytics-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				999349982405B5DA00625AD4 /* GoogleService-Info.plist */,
+				99757824240D191B005F7FB6 /* GoogleService-Info.plist */,
 			);
 			name = tingzhouAnalytics;
 			sourceTree = "<group>";
@@ -300,6 +300,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 4AKAEET5L5;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -347,7 +350,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				999349992405B5DA00625AD4 /* GoogleService-Info.plist in Resources */,
+				99757825240D191B005F7FB6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +665,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 4AKAEET5L5;
 				INFOPLIST_FILE = tingzhouAnalytics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -681,6 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4AKAEET5L5;
 				INFOPLIST_FILE = tingzhouAnalytics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -698,7 +703,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 108D4F3329D9FD936C0A944F /* Pods-tingzhouAnalytics-tvOS.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -726,7 +730,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D576A0ADFCB1CED1429D098 /* Pods-tingzhouAnalytics-tvOS.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;

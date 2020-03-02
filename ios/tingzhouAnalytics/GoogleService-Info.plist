@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>79621675058-roq7021bb5pcnh50jv79j9f5k90f0v83.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.79621675058-roq7021bb5pcnh50jv79j9f5k90f0v83</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBGqZVavQsz9g1TkxMxRCvCsfvzgpbhQP4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>79621675058</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tingzhou.tingzhouAnalytics</string>
+	<key>PROJECT_ID</key>
+	<string>tingzhouanalytics</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tingzhouanalytics.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:79621675058:ios:815f6c4a50103c60d3442b</string>
+	<key>DATABASE_URL</key>
+	<string>https://tingzhouanalytics.firebaseio.com</string>
+</dict>
+</plist>
