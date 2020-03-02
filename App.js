@@ -9,9 +9,13 @@ import firebase from '@react-native-firebase/app';
 
 import * as Screens from './src/Screens';
 import * as auth from './src/authReducer';
+import getRandomUserProperties from './src/common/getRandomUserProperties';
 
 Sentry.init({
   dsn: 'https://be7ae5d35f854e06bfe6a67dca3b6236@sentry.io/2596649',
+  beforeSend(event) {
+    return event;
+  },
 });
 
 export const AuthContext = React.createContext();
@@ -23,7 +27,7 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={Screens.HomeScreen} />
-      <HomeStack.Screen name="Details" component={Screens.DetailsScreen} />
+      <HomeStack.Screen name="Details" component={Screens.HomeDetailsScreen} />
     </HomeStack.Navigator>
   );
 }
@@ -36,7 +40,10 @@ function SettingsStackScreen() {
         name="Settings"
         component={Screens.SettingsScreen}
       />
-      <SettingsStack.Screen name="Details" component={Screens.DetailsScreen} />
+      <SettingsStack.Screen
+        name="Details"
+        component={Screens.SettingsDetailsScreen}
+      />
     </SettingsStack.Navigator>
   );
 }
@@ -99,7 +106,8 @@ export default function App() {
       signIn: async data => {
         dispatch({type: 'SIGN_IN', token: data.username});
         AsyncStorage.setItem('userToken', data.username);
-        analytics().setUserId(data.username);
+        await analytics().setUserId(data.username);
+        await analytics().setUserProperties(getRandomUserProperties());
       },
       signOut: async () => {
         dispatch({type: 'SIGN_OUT'});
