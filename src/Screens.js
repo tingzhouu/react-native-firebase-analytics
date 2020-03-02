@@ -8,9 +8,20 @@ import styles from './common/styles';
 import {AuthContext} from '../App';
 const {home, buy, settings, crash, login} = analytics.events;
 
-export function DetailsScreen() {
+export function HomeDetailsScreen() {
   React.useEffect(() => {
-    analytics.trackScreenView('DetailsScreen');
+    analytics.trackScreenView('HomeDetailsScreen');
+  }, []);
+  return (
+    <View style={styles.container}>
+      <Text>Details!</Text>
+    </View>
+  );
+}
+
+export function SettingsDetailsScreen() {
+  React.useEffect(() => {
+    analytics.trackScreenView('SettingsDetailsScreen');
   }, []);
   return (
     <View style={styles.container}>
@@ -97,8 +108,8 @@ export function SettingsScreen({navigation}) {
       />
       <CustomButton
         title="Logout"
-        onPress={() => {
-          analytics.trackUserEvent(settings.logout);
+        onPress={async () => {
+          await analytics.trackUserEvent(settings.logout);
           signOut();
         }}
       />
@@ -158,8 +169,9 @@ export function CrashScreen({navigation}) {
         onPress={() => {
           analytics.trackUserEvent(crash.catchException);
           try {
-            new Error('Something broke');
+            throw new Error('Something broke! Save me please :(');
           } catch (error) {
+            console.log('error', error.message);
             Sentry.captureException(error);
           }
         }}

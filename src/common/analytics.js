@@ -14,7 +14,7 @@ export async function trackUserEvent(eventName, eventParams) {
 
 export const events = {
   home: {
-    details: 'go_details_btn',
+    details: 'home_go_details_btn',
   },
   buy: {
     increase: 'increase_qty_btn',
@@ -22,7 +22,7 @@ export const events = {
     buy: 'buy_btn',
   },
   settings: {
-    details: 'go_details_btn',
+    details: 'settings_go_details_btn',
     logout: 'logout_btn',
   },
   crash: {
