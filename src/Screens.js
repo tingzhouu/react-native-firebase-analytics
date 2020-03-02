@@ -40,6 +40,7 @@ export function HomeScreen({navigation}) {
     <View style={styles.container}>
       <Text>Home screen</Text>
       <Text>Username: {state.userToken}</Text>
+      <Text>App Version: {state.appVersion}</Text>
       <CustomButton
         title="Go to Details"
         onPress={() => {
@@ -62,6 +63,7 @@ export function BuyScreen({navigation}) {
     <View style={styles.container}>
       <Text>Buy screen</Text>
       <Text>Username: {state.userToken}</Text>
+      <Text>App Version: {state.appVersion}</Text>
       <Text>Quantity Bought: {quantityBought}</Text>
       <Text>Quantity To Buy: {quantityToBuy}</Text>
       <CustomButton
@@ -99,6 +101,7 @@ export function SettingsScreen({navigation}) {
     <View style={styles.container}>
       <Text>Settings screen</Text>
       <Text>Username: {state.userToken}</Text>
+      <Text>App Version: {state.appVersion}</Text>
       <CustomButton
         title="Go to Details"
         onPress={() => {
@@ -126,6 +129,7 @@ export function CrashScreen({navigation}) {
     <View style={styles.container}>
       <Text>Crash screen</Text>
       <Text>Username: {state.userToken}</Text>
+      <Text>App Version: {state.appVersion}</Text>
       <CustomButton
         title="ReferenceError"
         onPress={() => {

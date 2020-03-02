@@ -1,7 +1,15 @@
+const user_age = [null];
+const minAge = 20;
+const maxAge = 59;
+for (let i = minAge; i <= maxAge; i++) {
+  user_age.push(i);
+}
+
 const userPropertiesTemplate = {
   id_type: ['nric', 'nric_pr', 'e_pass', 'work_permit', null],
   nationality: ['singaporean', 'malaysian', 'thai', 'japanese', null],
-  gender: ['male', 'female', null],
+  user_gender: ['male', 'female', null],
+  user_age,
   race: ['chinese', 'malay', 'indian', 'others', null],
   address_region: ['north', 'south', 'east', 'west', null],
   smoking_status: ['smoker', 'non_smoker', null],
