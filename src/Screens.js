@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text, View, TextInput} from 'react-native';
+import {Text, View, TextInput, TouchableOpacity} from 'react-native';
 import * as Sentry from '@sentry/react-native';
 import * as analytics from './common/analytics';
 
@@ -38,7 +38,7 @@ export function HomeScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-      <Text>Home screen</Text>
+      <Text testID="HomeTitle">Home screen</Text>
       <Text>Username: {state.userToken}</Text>
       <Text>App Version: {state.appVersion}</Text>
       <CustomButton
@@ -111,6 +111,7 @@ export function SettingsScreen({navigation}) {
       />
       <CustomButton
         title="Logout"
+        testID="LogoutButton"
         onPress={async () => {
           await analytics.trackUserEvent(settings.logout);
           signOut();
@@ -194,7 +195,13 @@ export function LoginScreen({navigation}) {
   return (
     <View style={styles.container}>
       <Text>Login screen</Text>
+      <View>
+        <TouchableOpacity testID="MyUniqueId123">
+          <Text>Some button</Text>
+        </TouchableOpacity>
+      </View>
       <TextInput
+        testID="UsernameInput"
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
@@ -206,6 +213,7 @@ export function LoginScreen({navigation}) {
       {username.length > 0 && (
         <CustomButton
           title="Login"
+          testID="LoginButton"
           onPress={() => {
             analytics.trackUserEvent(login.login);
             signIn({username});

@@ -1,19 +1,35 @@
+/* eslint-env detox/detox, mocha */
+
 describe('Example', () => {
   beforeEach(async () => {
     await device.reloadReactNative();
   });
 
-  it('should have welcome screen', async () => {
-    await expect(element(by.id('welcome'))).toBeVisible();
-  });
+  const names = [
+    'detoxMidoriya',
+    'detoxAllMight',
+    'detoxDavidShield',
+    'detoxFatGum',
+    'detoxRedRiot',
+    'detoxLemillion',
+    'detoxShoto',
+    'detoxTomuraShigaraki',
+    'detoxOverhaul',
+    'detoxFroppy',
+    'detoxUravity',
+    'detoxNighteye',
+  ];
 
-  it('should show hello screen after tap', async () => {
-    await element(by.id('hello_button')).tap();
-    await expect(element(by.text('Hello!!!'))).toBeVisible();
-  });
-
-  it('should show world screen after tap', async () => {
-    await element(by.id('world_button')).tap();
-    await expect(element(by.text('World!!!'))).toBeVisible();
+  it('should be able to login and logout', async () => {
+    for (let i = 0; i < names.length; i++) {
+      await expect(element(by.id('UsernameInput'))).toExist();
+      await element(by.id('UsernameInput')).typeText(names[i]);
+      await expect(element(by.id('LoginButton'))).toExist();
+      await element(by.id('LoginButton')).tap();
+      await expect(element(by.id('SettingsTab'))).toExist();
+      await element(by.id('SettingsTab')).tap();
+      await expect(element(by.id('LogoutButton'))).toExist();
+      await element(by.id('LogoutButton')).tap();
+    }
   });
 });

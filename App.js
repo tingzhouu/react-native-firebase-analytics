@@ -73,10 +73,29 @@ const Tab = createBottomTabNavigator();
 function MainTabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeStackScreen} />
-      <Tab.Screen name="Buy" component={BuyStackScreen} />
-      <Tab.Screen name="Crash" component={CrashStackScreen} />
-      <Tab.Screen name="Settings" component={SettingsStackScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeStackScreen}
+        options={{tabBarTestID: 'HomeTab'}}
+      />
+      <Tab.Screen
+        name="Buy"
+        component={BuyStackScreen}
+        tabBarTestID="BuyTab"
+        options={{tabBarTestID: 'BuyTab'}}
+      />
+      <Tab.Screen
+        name="Crash"
+        component={CrashStackScreen}
+        tabBarTestID="CrashTab"
+        options={{tabBarTestID: 'CrashTab'}}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsStackScreen}
+        tabBarTestID="SettingsTab"
+        options={{tabBarTestID: 'SettingsTab'}}
+      />
     </Tab.Navigator>
   );
 }

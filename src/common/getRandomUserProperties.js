@@ -2,7 +2,7 @@ const user_age = [null];
 const minAge = 20;
 const maxAge = 59;
 for (let i = minAge; i <= maxAge; i++) {
-  user_age.push(i);
+  user_age.push(i.toString());
 }
 
 const userPropertiesTemplate = {

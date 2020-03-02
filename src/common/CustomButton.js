@@ -4,9 +4,9 @@ import {RectButton} from 'react-native-gesture-handler';
 
 import styles from './styles';
 
-function CustomButton({title, onPress}) {
+function CustomButton({title, onPress, testID}) {
   return (
-    <RectButton disabled style={styles.button} {...{onPress}}>
+    <RectButton disabled style={styles.button} {...{onPress, testID}}>
       <View accessible>
         <Text style={styles.buttonText}>{title}</Text>
       </View>
