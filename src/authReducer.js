@@ -25,5 +25,5 @@ export const initialState = {
   isLoading: true,
   isSignout: false,
   userToken: null,
-  appVersion: '1.1',
+  appVersion: '1.2',
 };
