@@ -67,6 +67,7 @@ export function BuyScreen({navigation}) {
       <Text>Quantity Bought: {quantityBought}</Text>
       <Text>Quantity To Buy: {quantityToBuy}</Text>
       <CustomButton
+        testID="IncreaseQuantityButton"
         title="Increase Quantity"
         onPress={() => {
           setQuantityToBuy(quantityToBuy + 1);
@@ -74,6 +75,7 @@ export function BuyScreen({navigation}) {
         }}
       />
       <CustomButton
+        testID="DecreaseQuantityButton"
         title="Decrease Quantity"
         onPress={() => {
           setQuantityToBuy(quantityToBuy === 0 ? 0 : quantityToBuy - 1);
@@ -81,6 +83,7 @@ export function BuyScreen({navigation}) {
         }}
       />
       <CustomButton
+        testID="BuyButton"
         title="Buy"
         onPress={() => {
           setQuantityBought(quantityBought + quantityToBuy);
