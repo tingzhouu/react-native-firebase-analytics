@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Text, View, TextInput, TouchableOpacity} from 'react-native';
 import * as Sentry from '@sentry/react-native';
 import * as analytics from './common/analytics';
+import OneSignal from 'react-native-onesignal';
 
 import CustomButton from './common/CustomButton';
 import styles from './common/styles';
@@ -188,6 +189,46 @@ export function CrashScreen({navigation}) {
   );
 }
 
+function checkNotification() {
+  // Check push notification and OneSignal subscription statuses
+  OneSignal.getPermissionSubscriptionState((status) => {
+    console.log('status', status);
+  });
+}
+
+function requestNotification() {
+  const permissions = {
+    alert: true,
+    badge: true,
+    sound: true,
+  };
+  OneSignal.requestPermissions(permissions);
+  // OneSignal.registerForPushNotifications();
+}
+
+function startNotifications() {
+  OneSignal.setSubscription(true);
+}
+
+function stopNotifications() {
+  OneSignal.setSubscription(false);
+}
+
+function onReceived(notification) {
+  console.log("Notification received: ", notification);
+}
+
+function onOpened(openResult) {
+  console.log('Message: ', openResult.notification.payload.body);
+  console.log('Data: ', openResult.notification.payload.additionalData);
+  console.log('isActive: ', openResult.notification.isAppInFocus);
+  console.log('openResult: ', openResult);
+}
+
+function onIds(device) {
+  console.log('Device info: ', device);
+}
+
 export function LoginScreen({navigation}) {
   const [username, setUsername] = React.useState('');
   React.useEffect(() => {
@@ -199,8 +240,23 @@ export function LoginScreen({navigation}) {
     <View style={styles.container}>
       <Text>Login screen</Text>
       <View>
-        <TouchableOpacity testID="MyUniqueId123">
-          <Text>Some button</Text>
+        <TouchableOpacity testID="MyUniqueId123" onPress={checkNotification}>
+          <Text>Press for ONESignal Notif Details</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity testID="MyUniqueId123" onPress={requestNotification}>
+          <Text>Press for ONESignal request notif permissions</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity testID="MyUniqueId123" onPress={startNotifications}>
+          <Text>Start notifications</Text>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity testID="MyUniqueId123" onPress={stopNotifications}>
+          <Text>Stop notifications</Text>
         </TouchableOpacity>
       </View>
       <TextInput

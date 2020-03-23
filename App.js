@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import * as Sentry from '@sentry/react-native';
 import analytics from '@react-native-firebase/analytics';
 import firebase from '@react-native-firebase/app';
+import OneSignal from 'react-native-onesignal';
 
 import * as Screens from './src/Screens';
 import * as auth from './src/authReducer';
@@ -101,6 +102,21 @@ function MainTabs() {
 }
 
 export default function App() {
+  function onReceived(notification) {
+    console.log("Notification received: ", notification);
+  }
+
+  function onOpened(openResult) {
+    console.log('Message: ', openResult.notification.payload.body);
+    console.log('Data: ', openResult.notification.payload.additionalData);
+    console.log('isActive: ', openResult.notification.isAppInFocus);
+    console.log('openResult: ', openResult);
+  }
+
+  function onIds(device) {
+    console.log('Device info: ', device);
+  }
+
   if (firebase.app().utils().isRunningInTestLab) {
     firebase.analytics().setAnalyticsCollectionEnabled(false);
   }
@@ -118,6 +134,17 @@ export default function App() {
     };
 
     bootstrapAsync();
+    OneSignal.init('95d6fcbd-4948-46aa-ab9c-a9b0fd9eb681');
+    // OneSignal.init('95d6fcbd-4948-46aa-ab9c-a9b0fd9eb681', { kOSSettingsKeyAutoPrompt: false });
+    OneSignal.inFocusDisplaying(1);
+    OneSignal.addEventListener('received', onReceived);
+    OneSignal.addEventListener('opened', onOpened);
+    OneSignal.addEventListener('ids', onIds);
+    return () => {
+      OneSignal.removeEventListener('received', onReceived);
+      OneSignal.removeEventListener('opened', onOpened);
+      OneSignal.removeEventListener('ids', onIds);
+    };
   }, []);
 
   const authContext = React.useMemo(
